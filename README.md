@@ -20,7 +20,9 @@ Describes how to setup and run https://github.com/StanfordSNR/pantheon/ using Or
 5. ```src/experiments/test.py local --all --data-dir [directory name]```
 
 ## Test Commands
-These are the commands I ran to test congestion control schemes. Run ```src/analysis/analyze.py --data-dir [directory name]``` to generate all reports found in /reports/. The directory must be created with the --data-dir flag when you run the tests to generate the necessary log files. To share files from VirtualBox to your local machine install VirtualBox's Guest Additions and create a Shared Folder in VirtualBox's settings. Check 'Make Permanent' and 'Auto-Mount' but leave 'Read-Only' unchecked. You should see a folder named /media/sf_whateveryounamedit.
+These are the commands I ran to test congestion control schemes. Run ```src/analysis/analyze.py --data-dir [directory name]``` to generate all reports found in /reports/. The directory must be created with the --data-dir flag when you run the tests to generate the necessary log files. Pantheon can parse some data such as Mbps from filenames. See /traces folder for implementation.
+
+To share files from VirtualBox to your local machine install VirtualBox's Guest Additions and create a Shared Folder in VirtualBox's settings. Check 'Make Permanent' and 'Auto-Mount' but leave 'Read-Only' unchecked. You should see a folder named /media/sf_whateveryounamedit.
 
 Test cubic, fillp, and fillp-sheep under a high bandwidth environment:
 ```/src/experiments/test.py local --schemes "cubic fillp fillp_sheep" --uplink-trace traces/50mbps.trace --downlink-trace traces/50mbps.trace --runtime 60 --run-times 5 --prepend-mm-cmds "mm-delay 5" --data-dir b_results_delay```
